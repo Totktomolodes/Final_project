@@ -7,60 +7,51 @@
     android:layout_height="match_parent"
     tools:context=".activities.MainActivity2">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="412dp"
+        android:layout_height="55dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/catalog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Каталог" />
+
+        <Button
+            android:id="@+id/mycatalog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Мой каталог" />
+
+        <Button
+            android:id="@+id/installer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Загрузки" />
+
+        <Button
+            android:id="@+id/user_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Профиль" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/Frame_transition"
         android:layout_width="409dp"
-        android:layout_height="729dp"
+        android:layout_height="675dp"
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="1dp">
 
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="412dp"
-            android:layout_height="55dp"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+    </FrameLayout>
 
-            <Button
-                android:id="@+id/catalog"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Каталог" />
-
-            <Button
-                android:id="@+id/mycatalog"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Мой каталог" />
-
-            <Button
-                android:id="@+id/file_manager"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Загрузки" />
-
-            <Button
-                android:id="@+id/user_profile"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Профиль" />
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="162dp"
-            android:layout_height="136dp"
-            android:text="Добро Пожаловать!"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.352" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
