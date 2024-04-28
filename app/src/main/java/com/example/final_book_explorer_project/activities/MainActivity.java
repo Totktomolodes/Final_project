@@ -45,10 +45,18 @@ public class MainActivity extends AppCompatActivity {
 
         button_register.setOnClickListener(v -> { // setOnClickListener - обработчик событий
             try (MyDataBaseHelper myDataBaseHelper = new MyDataBaseHelper(this)) {
-                myDataBaseHelper.AddToDB(username_plain_text.getText().toString().trim(),
-                        password_plain_text.getText().toString().trim());
-                textView_main_page.setText("Вы успешно зарегистрировались");
-//Todo                ScreenHelper.replaceFragment(Myfragment.class, getSupportFragmentManager());
+
+                boolean existence = myDataBaseHelper.isUserInDB(username_plain_text.getText().toString().trim());
+                if(existence){
+                    textView_main_page.setText("Такой Аккаунт уже есть!");
+                }
+                else {
+                    textView_main_page.setText("Вы успешно зарегистрировались!");
+                    myDataBaseHelper.AddToDB(username_plain_text.getText().toString().trim(),
+                            password_plain_text.getText().toString().trim());
+                    //TODO добавить StartNewActivity
+                }
+
 
 
 
@@ -61,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                 boolean existence = myDataBaseHelper.isUserInDB(username_plain_text.getText().toString().trim());
                 if(existence){
                     textView_main_page.setText("Вы вошли в аккаунт");
-
+                    //TODO добавить StartNewActivity
                 }
                 else {
                     textView_main_page.setText("Пользователь не найден");
@@ -76,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void StartNewActivity(View  v){
-        Intent intent = new Intent(this, Main2Activity.class);
+        Intent intent = new Intent(this, MainActivity2.class);
         startActivity(intent);
     }
 

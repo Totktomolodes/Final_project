@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.example.final_book_explorer_project.R;
 
-public class Main2Activity extends AppCompatActivity {
+public class MainActivity2 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
