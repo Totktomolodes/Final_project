@@ -18,6 +18,7 @@ public class MyDataBaseHelper  extends SQLiteOpenHelper {
     private static final String COLUMN_PASSWORD = "password";
     public MyDataBaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        this.db = this.getWritableDatabase();
 
     }
 
@@ -37,16 +38,16 @@ public class MyDataBaseHelper  extends SQLiteOpenHelper {
 
     }
     public void AddToDB(String username, String  password){
+        String password1  = TextToHash.textToHash(password);
         ContentValues values = new ContentValues();
-        values.put("username", TextToHash.textToHash(username));
-        values.put("password", TextToHash.textToHash(password));
+        values.put("username", username);
+        values.put("password", password1);
         db.insert("users", null, values);
     }
 
     public boolean isUserInDB(String username) {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE " +
-                COLUMN_USERNAME , new String[]{username});
+        Cursor cursor = db.rawQuery(String.format("SELECT * FROM %s WHERE %s == '%s';", TABLE_NAME, COLUMN_USERNAME, username), new  String[]{});
         boolean exists = (cursor.getCount() > 0);
         cursor.close();
         return exists;

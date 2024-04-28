@@ -1,5 +1,8 @@
 package com.example.final_book_explorer_project.user_managment;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -23,8 +26,7 @@ public class TextToHash {
             return hexString.toString();
 
         } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-            return null;
+            throw new RuntimeException(e);
         }
     }
     public static String textFromHash(String text){

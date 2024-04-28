@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                     textView_main_page.setText("Вы успешно зарегистрировались!");
                     myDataBaseHelper.AddToDB(username_plain_text.getText().toString().trim(),
                             password_plain_text.getText().toString().trim());
-                    //TODO добавить StartNewActivity
+                    StartNewActivity();
                 }
 
 
@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                 boolean existence = myDataBaseHelper.isUserInDB(username_plain_text.getText().toString().trim());
                 if(existence){
                     textView_main_page.setText("Вы вошли в аккаунт");
-                    //TODO добавить StartNewActivity
+                    StartNewActivity();
                 }
                 else {
                     textView_main_page.setText("Пользователь не найден");
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-    public void StartNewActivity(View  v){
+    public void StartNewActivity(){
         Intent intent = new Intent(this, MainActivity2.class);
         startActivity(intent);
     }
