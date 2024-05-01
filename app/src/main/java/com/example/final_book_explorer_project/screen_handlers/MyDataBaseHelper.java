@@ -1,5 +1,4 @@
 package com.example.final_book_explorer_project.screen_handlers;
-//class userManager
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -43,6 +42,7 @@ public class MyDataBaseHelper  extends SQLiteOpenHelper {
         values.put("username", username);
         values.put("password", password1);
         db.insert("users", null, values);
+
     }
 
     public boolean isUserInDB(String username) {

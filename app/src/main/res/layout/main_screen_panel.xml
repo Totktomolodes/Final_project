@@ -11,28 +11,28 @@
         android:layout_width="322dp"
         android:layout_height="66dp"
         android:ems="10"
+        android:hint="Введите имя пользователя"
         android:inputType="text"
-        android:text="Введите имя пользователя"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.179"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.297" />
+        app:layout_constraintVertical_bias="0.299" />
 
     <EditText
         android:id="@+id/password_plain_text"
         android:layout_width="300dp"
         android:layout_height="59dp"
         android:ems="10"
+        android:hint="Введите пароль"
         android:inputType="textPassword"
-        android:text="Введите пароль"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.135"
+        app:layout_constraintHorizontal_bias="0.144"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.45" />
+        app:layout_constraintTop_toBottomOf="@+id/username_plain_text"
+        app:layout_constraintVertical_bias="0.051" />
 
     <Button
         android:id="@+id/button_login"
@@ -50,6 +50,7 @@
         android:id="@+id/button_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="onClick_Save"
         android:text="Регистрация"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

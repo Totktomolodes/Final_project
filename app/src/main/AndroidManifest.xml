@@ -16,7 +16,7 @@
             android:name=".activities.MainActivity2"
             android:exported="false" />
         <activity
-            android:name=".activities.MainActivity"
+            android:name=".firebase_managment.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
