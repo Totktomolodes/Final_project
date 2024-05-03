@@ -16,7 +16,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/profile_main_textView"
                 android:layout_width="158dp"
                 android:layout_height="85dp"
                 android:layout_marginTop="4dp"

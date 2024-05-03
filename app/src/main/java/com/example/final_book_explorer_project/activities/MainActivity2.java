@@ -10,7 +10,9 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 
 import com.example.final_book_explorer_project.R;
+import com.example.final_book_explorer_project.fragments.catalog.CatalogFragment;
 import com.example.final_book_explorer_project.fragments.installer.InstallerFragment;
+import com.example.final_book_explorer_project.fragments.mycatalog.MyCatalogFragment;
 import com.example.final_book_explorer_project.fragments.user_profile.Profile_Fragment;
 
 import java.time.chrono.IsoChronology;
@@ -49,6 +51,20 @@ public class MainActivity2 extends AppCompatActivity {
             public void onClick(View view) {
                 Profile_Fragment profileFragment1 = new Profile_Fragment();
                 setNewFragment(profileFragment1);
+            }
+        });
+        mycatalog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MyCatalogFragment myCatalogFragment = new MyCatalogFragment();
+                setNewFragment(myCatalogFragment);
+            }
+        });
+        catalog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CatalogFragment catalogFragment = new CatalogFragment();
+                setNewFragment(catalogFragment);
             }
         });
     }
