@@ -1,9 +1,11 @@
 package com.example.final_book_explorer_project.activities;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,7 +21,7 @@ import java.time.chrono.IsoChronology;
 
 public class MainActivity2 extends AppCompatActivity {
     private Profile_Fragment profileFragment = new Profile_Fragment();
-    private Button catalog, mycatalog, installer, user_profile;
+    private Button catalog, mycatalog, installer, user_profile, closing_button;
     private FrameLayout Frame_transition;
 
     @Override
@@ -32,6 +34,7 @@ public class MainActivity2 extends AppCompatActivity {
         installer = findViewById(R.id.installer);
         user_profile = findViewById(R.id.user_profile);
         Frame_transition = findViewById(R.id.Frame_transition);
+        closing_button = findViewById(R.id.closing_button);
 
 
         setNewFragment(profileFragment); // по умолчанию страница
@@ -67,12 +70,41 @@ public class MainActivity2 extends AppCompatActivity {
                 setNewFragment(catalogFragment);
             }
         });
+        closing_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setAlertDialog();
+            }
+        });
+
+
     }
 
-    private void setNewFragment(Fragment fragment) {
+    public void setNewFragment(Fragment fragment) {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.Frame_transition, fragment);
         ft.commit();
 
     }
+    public void  setAlertDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity2.this);
+        builder.setTitle("Внимание!");
+        builder.setMessage("Вы действительно хотите закрыть приложение?");
+        builder.setCancelable(false);
+        builder.setPositiveButton("Конечно", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+        builder.setNegativeButton("Нет", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
 }

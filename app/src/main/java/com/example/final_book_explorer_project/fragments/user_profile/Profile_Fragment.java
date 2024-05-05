@@ -3,6 +3,7 @@ package com.example.final_book_explorer_project.fragments.user_profile;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.text.InputType;
 import android.view.LayoutInflater;
@@ -10,8 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.final_book_explorer_project.R;
+import com.example.final_book_explorer_project.activities.MainActivity2;
 import com.example.final_book_explorer_project.fragments.installer.InstallerFragment;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -27,33 +30,21 @@ public class Profile_Fragment extends Fragment {
         return inflater.inflate(R.layout.fragment_profile_, container, false);
 
     }
-
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-
-        View view = getView();
-        if (view == null){
-            throw new RuntimeException();
-        }
+    public void onViewCreated (View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         log_out_button = view.findViewById(R.id.log_out_button);
         settings_button = view.findViewById(R.id.settings_button);
         changing_button = view.findViewById(R.id.changing_button);
 
 
-        changing_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
+        changing_button.setOnClickListener(view1 -> {
 
         });
-        settings_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-            }
-
+        settings_button.setOnClickListener(view1 -> {
+            MainActivity2 mainActivity2 = new MainActivity2();
+           Settings_fragment settings_fragment = new Settings_fragment();
+           mainActivity2.setNewFragment(settings_fragment);
         });
         log_out_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,12 +53,6 @@ public class Profile_Fragment extends Fragment {
             }
 
         });
-
-
-
-
-//Todo        public void logout(){
-//Todo        public void settings(){
 
     }
 

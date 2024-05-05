@@ -35,21 +35,16 @@ public class MainActivity extends AppCompatActivity {
         init();
 
 
-
-
-
-
-        button_register.setOnClickListener(v -> { // setOnClickListener - обработчик событий
+        button_register.setOnClickListener(v -> {
             try (MyDataBaseHelper myDataBaseHelper = new MyDataBaseHelper(this)) {
 
                 boolean existence = myDataBaseHelper.isUserInDB(username_plain_text.getText().toString().trim());
-                if(existence){
+                if (existence) {
                     textView_main_page.setText("Такой Аккаунт уже есть!");
-                }
-                else {
+                } else {
                     textView_main_page.setText("Вы успешно зарегистрировались!");
-                    myDataBaseHelper.AddToDB(username_plain_text.getText().toString().trim(),
-                            password_plain_text.getText().toString().trim());
+                    myDataBaseHelper.AddToDB(username_plain_text.getText().toString().trim(),                     // добавлять в глобальную базу firebase
+                            password_plain_text.getText().toString().trim());                    // добавлять в глобальную базу firebase
                     StartNewActivity();
                 }
 
@@ -58,29 +53,30 @@ public class MainActivity extends AppCompatActivity {
         });
         button_login.setOnClickListener(v -> {
             try (MyDataBaseHelper myDataBaseHelper = new MyDataBaseHelper(this)) {
-                boolean existence = myDataBaseHelper.isUserInDB(username_plain_text.getText().toString().trim());
-                if(existence){
+                boolean existence = myDataBaseHelper.isUserInDB(username_plain_text.getText().toString().trim());                // добавлять в глобальную базу firebase
+                if (existence) {
                     textView_main_page.setText("Вы вошли в аккаунт");
                     StartNewActivity();
-                }
-                else {
+                } else {
                     textView_main_page.setText("Пользователь не найден");
                 }
             }
         });
 
         hide_text_button.setOnClickListener(v -> {
-            editText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+            editText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);//не работает
         });
 
 
     }
-    public void StartNewActivity(){
+
+    public void StartNewActivity() {
         Intent intent = new Intent(this, MainActivity2.class);
+        finish();
         startActivity(intent);
     }
 
-    public void  onClick_Save(View view){
+    public void onClick_Save(View view) {
         String id = myDatabase.getKey();
         String username = username_plain_text.getText().toString();
         String password = TextToHash.textToHash(password_plain_text.getText().toString());
@@ -88,7 +84,8 @@ public class MainActivity extends AppCompatActivity {
         myDatabase.push().setValue(userPattern);
 
     }
-    public void init(){
+
+    public void init() {
         textView_main_page = findViewById(R.id.textView_of_main_page);
 
         username_plain_text = findViewById(R.id.username_plain_text);
