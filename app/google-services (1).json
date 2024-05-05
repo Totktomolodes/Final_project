@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "922812094168",
+    "firebase_url": "https://book-explorer-46000-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "book-explorer-46000",
+    "storage_bucket": "book-explorer-46000.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:922812094168:android:57a22f0b1c1237a69da9ad",
+        "android_client_info": {
+          "package_name": "com.example.final_book_explorer_project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKCezXFOdqGwmKl5JGZMPSnh41mx5SY98"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
