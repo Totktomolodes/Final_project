@@ -2,6 +2,7 @@ package com.example.final_book_explorer_project.fragments.user_profile;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -30,7 +31,7 @@ public class Profile_Fragment extends Fragment {
         return inflater.inflate(R.layout.fragment_profile_, container, false);
 
     }
-    public void onViewCreated (View view, Bundle savedInstanceState) {
+    public void onViewCreated (@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         log_out_button = view.findViewById(R.id.log_out_button);
         settings_button = view.findViewById(R.id.settings_button);

@@ -108,22 +108,22 @@ public class MainActivity extends AppCompatActivity {
         dialog.setNegativeButton("Назад", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int which) {
-            dialogInterface.dismiss();
+                dialogInterface.dismiss();
             }
 
         });
         dialog.setPositiveButton("Зарегистрироваться", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int which) {
-                if(TextUtils.isEmpty(username.getText().toString())){
+                if (TextUtils.isEmpty(username.getText().toString())) {
                     Snackbar.make(root, "Ошибка имени", Snackbar.LENGTH_SHORT).show();
                     return;
                 }
-                if(TextUtils.isEmpty(password.getText().toString())){
+                if (TextUtils.isEmpty(password.getText().toString())) {
                     Snackbar.make(root, "Ошибка пароля", Snackbar.LENGTH_SHORT).show();
                     return;
                 }
-                if(TextUtils.isEmpty(email.getText().toString())){
+                if (TextUtils.isEmpty(email.getText().toString())) {
                     Snackbar.make(root, "Ошибка почты", Snackbar.LENGTH_SHORT).show();
                     return;
                 }
@@ -131,11 +131,22 @@ public class MainActivity extends AppCompatActivity {
                         .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                             @Override
                             public void onSuccess(AuthResult authResult) {
-//TODO досмотреть видос
+                                User user = new User(email.getText().toString(),
+                                        username.getText().toString(), password.getText().toString());
+                                users.child(user.getName())
+                                        .setValue(user)
+                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void unused) {
+                                                Snackbar.make(root, "Пользователь добавлен!", Snackbar.LENGTH_SHORT).show();
+                                            }
+                                        });
                             }
                         });
             }
         });
+
+        dialog.show();
     }
 
     public void StartNewActivity() {
