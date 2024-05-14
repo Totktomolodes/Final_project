@@ -17,12 +17,10 @@ import com.example.final_book_explorer_project.fragments.installer.InstallerFrag
 import com.example.final_book_explorer_project.fragments.mycatalog.MyCatalogFragment;
 import com.example.final_book_explorer_project.fragments.user_profile.Profile_Fragment;
 
-import java.time.chrono.IsoChronology;
-
 public class MainActivity2 extends AppCompatActivity {
     private Profile_Fragment profileFragment = new Profile_Fragment();
     private Button catalog, mycatalog, installer, user_profile, closing_button;
-    private FrameLayout Frame_transition;
+    private FrameLayout frameTransition;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +31,7 @@ public class MainActivity2 extends AppCompatActivity {
         mycatalog = findViewById(R.id.mycatalog);
         installer = findViewById(R.id.installer);
         user_profile = findViewById(R.id.user_profile);
-        Frame_transition = findViewById(R.id.Frame_transition);
+        frameTransition = findViewById(R.id.Frame_transition);
         closing_button = findViewById(R.id.closing_button);
 
 

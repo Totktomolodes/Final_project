@@ -19,7 +19,6 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.final_book_explorer_project.R;
 import com.example.final_book_explorer_project.activities.MainActivity2;
-import com.example.final_book_explorer_project.screen_handlers.MyDataBaseHelper;
 import com.example.final_book_explorer_project.user_managment.TextToHash;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -28,7 +27,6 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.rengwuxian.materialedittext.MaterialEditText;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -40,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
     FirebaseDatabase db;
     ConstraintLayout root;
     private DatabaseReference users;
+    private boolean isReadPermissionGranted = false;
+
+//    ActvityResultLauncher<String[]> mPermissionResultLauncher;
 
 
     @Override
@@ -81,9 +82,22 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+//        mPermissionResultLauncher = registerForActivityResult(new ActivityResultContracts.RequestMultiplePermissions(),
+//                new ActivityResultCallback<Map<String, Boolean>>() {
+//                    @Override
+//                    public void onActivityResult(Map<String, Boolean> result) {
+//                        if(result.get(Manifest.permission.WRITE_EXTERNAL_STORAGE) != null){
+//                            isReadPermissionGranted = result.get(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+//                        }
+//
+//                    }
+//                }
+//                {
+//        })
 
 
     }
+
 
     private void showSignIn_window() {
         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
@@ -184,8 +198,9 @@ public class MainActivity extends AppCompatActivity {
                                             @Override
                                             public void onSuccess(Void unused) {
                                                 Snackbar.make(root, "Пользователь добавлен!", Snackbar.LENGTH_SHORT).show();
-                                                startActivity(new Intent(MainActivity.this, MainActivity2.class));
                                                 finish();
+                                                startActivity(new Intent(MainActivity.this, MainActivity2.class));
+
                                             }
                                         }).addOnFailureListener(new OnFailureListener() {
                                             @Override
@@ -213,14 +228,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void init() {
         textView_main_page = findViewById(R.id.textView_of_main_page);
-
-
-        username_plain_text.setInputType(InputType.TYPE_CLASS_TEXT);
-
-
-        password_plain_text.setInputType(InputType.TYPE_CLASS_TEXT);
-
-
         button_register = findViewById(R.id.button_register);
         button_login = findViewById(R.id.button_login);
 
@@ -231,5 +238,23 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+//    private void request_permission() {
+//        isReadPernissionGranted = ContextCompat.checkSelfPermission(this,
+//                Manifest.permission.WRITE_EXTERNAL_STORAGE //Todo
+//        ) == PackageManager.PERMISSION_GRANTED;
+//
+//
+//        List<String> permissionRequest = new ArrayList<String>();
+//
+//        if (!isReadPernissionGranted) {
+//            permissionRequest.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+//
+//        }
+//        if (!permissionRequest.isEmpty()) {
+//            mPermissionResultLauncher.launch(permissionRequest.toArray(new String[0]));
+//        }
+//
+//    }
 
 }
