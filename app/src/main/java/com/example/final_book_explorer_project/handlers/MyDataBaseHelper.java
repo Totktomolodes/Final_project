@@ -1,11 +1,9 @@
-package com.example.final_book_explorer_project.screen_handlers;
+package com.example.final_book_explorer_project.handlers;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
-import com.example.final_book_explorer_project.user_managment.TextToHash;
 
 
 public class MyDataBaseHelper  extends SQLiteOpenHelper {
@@ -36,20 +34,20 @@ public class MyDataBaseHelper  extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
-    public void AddToDB(String username, String  password){
-        String password1  = TextToHash.textToHash(password);
-        ContentValues values = new ContentValues();
-        values.put("username", username);
-        values.put("password", password1);
-        db.insert("users", null, values);
+//    public void AddToDB(String username, String  password){
+//        String password1  = TextToHash.textToHash(password);
+//        ContentValues values = new ContentValues();
+//        values.put("username", username);
+//        values.put("password", password1);
+//        db.insert("users", null, values);
+//
+//    }
 
-    }
-
-    public boolean isUserInDB(String username) {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery(String.format("SELECT * FROM %s WHERE %s == '%s';", TABLE_NAME, COLUMN_USERNAME, username), new  String[]{});
-        boolean exists = (cursor.getCount() > 0);
-        cursor.close();
-        return exists;
-    }
+//    public boolean isUserInDB(String username) {
+//        SQLiteDatabase db = this.getReadableDatabase();
+//        Cursor cursor = db.rawQuery(String.format("SELECT * FROM %s WHERE %s == '%s';", TABLE_NAME, COLUMN_USERNAME, username), new  String[]{});
+//        boolean exists = (cursor.getCount() > 0);
+//        cursor.close();
+//        return exists;
+//    }
 }

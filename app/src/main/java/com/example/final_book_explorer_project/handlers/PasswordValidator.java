@@ -1,4 +1,4 @@
-package com.example.final_book_explorer_project.user_managment;
+package com.example.final_book_explorer_project.handlers;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -33,12 +33,12 @@ public class PasswordValidator {
         // Пароль прошел все проверки
     }
 
-    public void CheckPassword(String password){
-        if (isPasswordStrong(password)) {
-            System.out.println("Пароль надежный.");
-        } else {
-            System.out.println("Пароль недостаточно надежный.");
-        }
-
-    }
+//    public void CheckPassword(String password){
+//        if (isPasswordStrong(password)) {
+//            System.out.println("Пароль надежный.");
+//        } else {
+//            System.out.println("Пароль недостаточно надежный.");
+//        }
+//
+//    }
 }

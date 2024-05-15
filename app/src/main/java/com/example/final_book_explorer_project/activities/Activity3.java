@@ -1,4 +1,4 @@
-package com.example.final_book_explorer_project.firebase_managment;
+package com.example.final_book_explorer_project.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 

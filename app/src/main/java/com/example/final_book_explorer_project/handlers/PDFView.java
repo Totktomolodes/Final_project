@@ -1,4 +1,4 @@
-package com.example.final_book_explorer_project.textbook_handlers;
+package com.example.final_book_explorer_project.handlers;
 
 import android.graphics.Bitmap;
 import android.graphics.pdf.PdfRenderer;

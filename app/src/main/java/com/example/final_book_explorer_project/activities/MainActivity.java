@@ -1,9 +1,8 @@
-package com.example.final_book_explorer_project.firebase_managment;
+package com.example.final_book_explorer_project.activities;
 
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.InputType;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,8 +17,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.final_book_explorer_project.R;
-import com.example.final_book_explorer_project.activities.MainActivity2;
-import com.example.final_book_explorer_project.user_managment.TextToHash;
+import com.example.final_book_explorer_project.handlers.firebase_managment.User;
+import com.example.final_book_explorer_project.handlers.TextToHash;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.snackbar.Snackbar;
@@ -27,6 +26,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
 
 
 public class MainActivity extends AppCompatActivity {
@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
                     Snackbar.make(root, "Ошибка почты", Snackbar.LENGTH_SHORT).show();
                     return;
                 }
-                auth.signInWithEmailAndPassword(email.getText().toString(), password.getText().toString())
+                auth.signInWithEmailAndPassword(email.getText().toString(), TextToHash.textToHash(password.getText().toString()))
                         .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                             @Override
                             public void onSuccess(AuthResult authResult) {
@@ -191,7 +191,7 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onSuccess(AuthResult authResult) {
                                 User user = new User(email.getText().toString(),
-                                        username.getText().toString(), password.getText().toString());
+                                        username.getText().toString(), TextToHash.textToHash(password.getText().toString()));
                                 users.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                         .setValue(user)
                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -217,14 +217,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void onClick_Save(View view) {
-        String id = users.getKey();
-        String username = username_plain_text.getText().toString();
-        String password = TextToHash.textToHash(password_plain_text.getText().toString());
-        UserPattern userPattern = new UserPattern(id, username, password);
-        users.push().setValue(userPattern);
-
-    }
+//    public void onClick_Save(View view) {
+//        String id = users.getKey();
+//        String username = username_plain_text.getText().toString();
+//        String password = TextToHash.textToHash(password_plain_text.getText().toString());
+//        UserPattern userPattern = new UserPattern(id, username, password);
+//        users.push().setValue(userPattern);
+//
+//    }
 
     public void init() {
         textView_main_page = findViewById(R.id.textView_of_main_page);

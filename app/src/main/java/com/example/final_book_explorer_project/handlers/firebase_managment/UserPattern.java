@@ -1,4 +1,4 @@
-package com.example.final_book_explorer_project.firebase_managment;
+package com.example.final_book_explorer_project.handlers.firebase_managment;
 
 public class UserPattern {
     public String id, username, password;

@@ -1,4 +1,4 @@
-package com.example.final_book_explorer_project.textbook_handlers;
+package com.example.final_book_explorer_project.handlers;
 
 public class PageFlipper {
     private int currentPageIndex = 0;

@@ -1,4 +1,4 @@
-package com.example.final_book_explorer_project.user_managment;
+package com.example.final_book_explorer_project.handlers;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -29,9 +29,9 @@ public class TextToHash {
             throw new RuntimeException(e);
         }
     }
-    public static String textFromHash(String text){
-        return null; //TODO
-    }
+//    public static String textFromHash(String text){
+//        return null; //TODO
+//    }
 
 
 }
