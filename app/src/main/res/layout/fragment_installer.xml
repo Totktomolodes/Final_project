@@ -6,23 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".fragments.installer.InstallerFragment">
 
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="680dp"
-        tools:context=".fragments.user_profile.Profile_Fragment">
+        android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <FrameLayout
+            android:id="@+id/frame"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="650dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/profile_main_textView"
-                android:layout_width="158dp"
-                android:layout_height="85dp"
-                android:layout_marginTop="4dp"
-                android:text="Загрузки"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </FrameLayout>
+        </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

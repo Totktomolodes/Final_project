@@ -16,7 +16,6 @@ import android.widget.Toast;
 
 import com.example.final_book_explorer_project.R;
 import com.example.final_book_explorer_project.activities.MainActivity2;
-import com.example.final_book_explorer_project.fragments.installer.InstallerFragment;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class Profile_Fragment extends Fragment {
