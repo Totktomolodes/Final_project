@@ -2,71 +2,79 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/profile"
+    android:id="@+id/user_profile"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".activities.MainActivity2">
+    android:layout_height="match_parent"    tools:context=".activities.MainActivity2">
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="412dp"
-        android:layout_height="55dp"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_marginBottom="4dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent">
 
-        <Button
+        <ImageButton
             android:id="@+id/catalog"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Каталог" />
+            android:contentDescription="1212"
+            app:srcCompat="@drawable/catalog" />
 
-        <Button
+        <ImageButton
             android:id="@+id/mycatalog"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Мой каталог" />
+            android:contentDescription="1212"
+            app:srcCompat="@drawable/mycatalog_icon" />
 
-        <Button
+        <ImageButton
             android:id="@+id/installer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Загрузки" />
+            android:contentDescription="1212"
+            app:srcCompat="@drawable/download" />
 
-        <Button
-            android:id="@+id/user_profile"
+        <ImageButton
+            android:id="@+id/imageButton12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Профиль" />
+            android:contentDescription="1212"
+            app:srcCompat="@drawable/profile1" />
+
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="391dp"
-        android:layout_height="79dp"
-        android:layout_marginBottom="1dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        android:layout_height="70dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Frame_transition">
 
-        <Button
+        <ImageButton
             android:id="@+id/closing_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Закрыть"
+            android:layout_width="79dp"
+            android:layout_height="70dp"
+            android:background="@android:color/holo_blue_light"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            android:contentDescription="1212"
+            app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <FrameLayout
-        android:id="@+id/frame_transition"
+        android:id="@+id/Frame_transition"
         android:layout_width="391dp"
         android:layout_height="670dp"
         app:layout_constraintEnd_toEndOf="parent"

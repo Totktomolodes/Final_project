@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 
 import com.example.final_book_explorer_project.R;
 import com.example.final_book_explorer_project.fragments.catalog.CatalogFragment;
@@ -19,7 +20,7 @@ import com.example.final_book_explorer_project.fragments.user_profile.Profile_Fr
 
 public class MainActivity2 extends AppCompatActivity {
     private Profile_Fragment profileFragment = new Profile_Fragment();
-    private Button catalog, mycatalog, installer, user_profile, closing_button;
+    private ImageButton catalog, mycatalog, installer, user_profile, closing_button;
     private FrameLayout frameTransition;
 
     @Override
