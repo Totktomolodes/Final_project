@@ -6,9 +6,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 
@@ -72,7 +72,7 @@ public class MainActivity2 extends AppCompatActivity {
         closing_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setAlertDialog();
+                setExitAlertDialog();
             }
         });
 
@@ -85,7 +85,7 @@ public class MainActivity2 extends AppCompatActivity {
         ft.commit();
 
     }
-    public void  setAlertDialog(){
+    public void setExitAlertDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity2.this);
         builder.setTitle("Внимание!");
         builder.setMessage("Вы действительно хотите закрыть приложение?");

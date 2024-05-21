@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
                         .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                             @Override
                             public void onSuccess(AuthResult authResult) {
-                                startActivity(new Intent(MainActivity.this, Activity3.class));
+                                startActivity(new Intent(MainActivity.this, MainActivity3.class));
                                 finish();
                             }
                         }).addOnFailureListener(new OnFailureListener() {

@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/button_login"
+    android:id="@+id/constr_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgr2">
@@ -48,18 +48,19 @@
             android:id="@+id/button_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/holo_red_dark"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="#3F51B5"
             android:text="Регистрация"
             android:textColorHighlight="@color/black"
-            android:textColorLink="#FFFFFF" />
+            android:textColorLink="#FFFFFF"
+            app:cornerRadius="1dp" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/button_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/black"
-            android:text="Вход" />
+            android:backgroundTint="#3F51B5"
+            android:text="Вход"
+            app:cornerRadius="1dp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

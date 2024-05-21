@@ -35,21 +35,26 @@
             android:layout_width="1dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/go_back" />
+            app:srcCompat="@drawable/goback" />
 
         <Button
             android:id="@+id/button6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
             android:layout_weight="1"
-            android:text="Назад" />
+            android:backgroundTint="#3F51B5"
+            android:text="Назад"
+            app:cornerRadius="1dp" />
 
         <Button
             android:id="@+id/button7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Вперед" />
+            android:backgroundTint="#3F51B5"
+            android:text="Вперед"
+            app:cornerRadius="1dp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
