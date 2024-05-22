@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -33,7 +32,6 @@ public class MainActivity2 extends AppCompatActivity {
         installer = findViewById(R.id.installer);
         user_profile = findViewById(R.id.user_profile);
         frameTransition = findViewById(R.id.Frame_transition);
-        closing_button = findViewById(R.id.closing_button);
 
 
         setNewFragment(profileFragment); // по умолчанию страница
@@ -69,12 +67,12 @@ public class MainActivity2 extends AppCompatActivity {
                 setNewFragment(catalogFragment);
             }
         });
-        closing_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setExitAlertDialog();
-            }
-        });
+//        closing_button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                setExitAlertDialog();
+//            }
+//        });
 
 
     }
@@ -85,25 +83,25 @@ public class MainActivity2 extends AppCompatActivity {
         ft.commit();
 
     }
-    public void setExitAlertDialog(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity2.this);
-        builder.setTitle("Внимание!");
-        builder.setMessage("Вы действительно хотите закрыть приложение?");
-        builder.setCancelable(false);
-        builder.setPositiveButton("Конечно", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                finish();
-            }
-        });
-        builder.setNegativeButton("Нет", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        });
-        AlertDialog dialog = builder.create();
-        dialog.show();
-    }
+//    public void setExitAlertDialog(){
+//        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity2.this);
+//        builder.setTitle("Внимание!");
+//        builder.setMessage("Вы действительно хотите закрыть приложение?");
+//        builder.setCancelable(false);
+//        builder.setPositiveButton("Конечно", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//                finish();
+//            }
+//        });
+//        builder.setNegativeButton("Нет", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//                dialog.cancel();
+//            }
+//        });
+//        AlertDialog dialog = builder.create();
+//        dialog.show();
+//    }
 
 }

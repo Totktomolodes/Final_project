@@ -123,11 +123,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int which) {
                 if (TextUtils.isEmpty(password.getText().toString())) {
-                    Snackbar.make(root, "Ошибка пароля", Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(findViewById(android.R.id.content), "Ошибка пароля", Snackbar.LENGTH_SHORT).show();
                     return;
                 }
                 if (TextUtils.isEmpty(email.getText().toString())) {
-                    Snackbar.make(root, "Ошибка почты", Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(findViewById(android.R.id.content), "Ошибка почты", Snackbar.LENGTH_SHORT).show();
                     return;
                 }
                 auth.signInWithEmailAndPassword(email.getText().toString(), TextToHash.textToHash(password.getText().toString()))
@@ -140,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Snackbar.make(root, "Ошибка авторизации" + e.getMessage(), Snackbar.LENGTH_SHORT).show();
+                                Snackbar.make(findViewById(android.R.id.content), "Ошибка авторизации" + e.getMessage(), Snackbar.LENGTH_SHORT).show();
 
                             }
                         });
@@ -175,15 +175,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int which) {
                 if (TextUtils.isEmpty(username.getText().toString())) {
-                    Snackbar.make(root, "Ошибка имени", Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(findViewById(android.R.id.content), "Ошибка имени", Snackbar.LENGTH_SHORT).show();
                     return;
                 }
                 if (TextUtils.isEmpty(password.getText().toString())) {
-                    Snackbar.make(root, "Ошибка пароля", Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(findViewById(android.R.id.content), "Ошибка пароля", Snackbar.LENGTH_SHORT).show();
                     return;
                 }
                 if (TextUtils.isEmpty(email.getText().toString())) {
-                    Snackbar.make(root, "Ошибка почты", Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(findViewById(android.R.id.content), "Ошибка почты", Snackbar.LENGTH_SHORT).show();
                     return;
                 }
                 auth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString())
@@ -197,7 +197,7 @@ public class MainActivity extends AppCompatActivity {
                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                             @Override
                                             public void onSuccess(Void unused) {
-                                                Snackbar.make(root, "Пользователь добавлен!", Snackbar.LENGTH_SHORT).show();
+                                                Snackbar.make(findViewById(android.R.id.content), "Пользователь добавлен!", Snackbar.LENGTH_SHORT).show();
                                                 finish();
                                                 startActivity(new Intent(MainActivity.this, MainActivity2.class));
 
@@ -205,7 +205,7 @@ public class MainActivity extends AppCompatActivity {
                                         }).addOnFailureListener(new OnFailureListener() {
                                             @Override
                                             public void onFailure(@NonNull Exception e) {
-                                                Snackbar.make(root, "Ошибка регистрации" + e.getMessage(), Snackbar.LENGTH_LONG).show();
+                                                Snackbar.make(findViewById(android.R.id.content), "Ошибка регистрации" + e.getMessage(), Snackbar.LENGTH_LONG).show();
                                             }
                                         });
                             }
@@ -215,6 +215,7 @@ public class MainActivity extends AppCompatActivity {
 
         dialog.show();
     }
+
 
 
 //    public void onClick_Save(View view) {
