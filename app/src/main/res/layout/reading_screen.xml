@@ -12,14 +12,24 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textView3"
-            android:layout_width="391dp"
-            android:layout_height="755dp"
+            android:id="@+id/reading_textview"
+            android:layout_width="match_parent"
+            android:layout_height="735dp"
             android:text="TextView"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/counter_pages_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="23dp"
+            android:gravity="center"
+            android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/reading_textview" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
@@ -31,14 +41,15 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageButton
-            android:id="@+id/imageButton2"
+            android:id="@+id/go_back_btn"
             android:layout_width="1dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/goback" />
+            app:srcCompat="@drawable/goback"
+            android:contentDescription="back" />
 
         <Button
-            android:id="@+id/button6"
+            android:id="@+id/back_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="3dp"
@@ -48,7 +59,7 @@
             app:cornerRadius="1dp" />
 
         <Button
-            android:id="@+id/button7"
+            android:id="@+id/next_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

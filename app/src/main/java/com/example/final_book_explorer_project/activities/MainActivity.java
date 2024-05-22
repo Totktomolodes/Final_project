@@ -175,15 +175,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int which) {
                 if (TextUtils.isEmpty(username.getText().toString())) {
-                    Snackbar.make(findViewById(android.R.id.content), "Ошибка имени", Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(findViewById(android.R.id.content), "Ошибка логина или пароля или почты", Snackbar.LENGTH_SHORT).show();
                     return;
                 }
                 if (TextUtils.isEmpty(password.getText().toString())) {
-                    Snackbar.make(findViewById(android.R.id.content), "Ошибка пароля", Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(findViewById(android.R.id.content), "Ошибка логина или пароля или почты", Snackbar.LENGTH_SHORT).show();
                     return;
                 }
                 if (TextUtils.isEmpty(email.getText().toString())) {
-                    Snackbar.make(findViewById(android.R.id.content), "Ошибка почты", Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(findViewById(android.R.id.content), "Ошибка логина или пароля или почты", Snackbar.LENGTH_SHORT).show();
                     return;
                 }
                 auth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString())
@@ -227,7 +227,7 @@ public class MainActivity extends AppCompatActivity {
 //
 //    }
 
-    public void init() {
+    private void init() {
         textView_main_page = findViewById(R.id.textView_of_main_page);
         button_register = findViewById(R.id.button_register);
         button_login = findViewById(R.id.button_login);

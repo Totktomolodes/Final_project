@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.final_book_explorer_project.R;
+import com.example.final_book_explorer_project.activities.MainActivity;
 import com.example.final_book_explorer_project.activities.MainActivity3;
 import com.example.final_book_explorer_project.activities.MainActivity2;
 import com.example.final_book_explorer_project.fragments.user_profile.Settings_fragment;
@@ -29,6 +30,8 @@ import java.io.InputStreamReader;
 public class InstallerFragment extends Fragment {
     public Button start_conductor;
     private static final int REQUEST_CODE_OPEN_DOCUMENT = 1;
+    public static int page_count;
+    public static String fileContent;
 
 
     @Override
@@ -68,8 +71,14 @@ public class InstallerFragment extends Fragment {
                 stringBuilder.append(line).append('\n');
             }
             String fileContent = stringBuilder.toString();
+            int page_count = fileContent.length() / 5000;
+
+
             // Handle the file content here
             Log.d("MainActivity", "File Content: " + fileContent); //fafafafafafafafa TODO
+
+            getActivity().finish();
+            startActivity(new Intent(getActivity(), MainActivity3.class));
         } catch (IOException e) {
             e.printStackTrace();
         }
