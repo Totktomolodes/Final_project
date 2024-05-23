@@ -10,20 +10,22 @@
 
     <TextView
         android:id="@+id/mainscreen_text_view"
-        android:layout_width="288dp"
-        android:layout_height="40dp"
+        android:layout_width="325dp"
+        android:layout_height="59dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
-        android:background="#C8A77D"
-        android:backgroundTint="#FFFFFF"
+        android:background="#FFFFFF"
+        android:backgroundTint="#00FFFFFF"
         android:text="Добро пожаловать!"
+        android:textColor="#F8FFFFFF"
         android:textSize="25dp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.152"
+        app:layout_constraintHorizontal_bias="0.284"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.054" />
+        app:layout_constraintVertical_bias="0.05" />
 
     <TextView
         android:id="@+id/textView_of_main_page"
@@ -52,6 +54,7 @@
             android:text="Регистрация"
             android:textColorHighlight="@color/black"
             android:textColorLink="#FFFFFF"
+            android:textSize="20sp"
             app:cornerRadius="1dp" />
 
         <Button
@@ -60,6 +63,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="#3F51B5"
             android:text="Вход"
+            android:textSize="20sp"
             app:cornerRadius="1dp" />
     </LinearLayout>
 

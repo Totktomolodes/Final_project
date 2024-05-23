@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
                         .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                             @Override
                             public void onSuccess(AuthResult authResult) {
-                                startActivity(new Intent(MainActivity.this, MainActivity3.class));
+                                startActivity(new Intent(MainActivity.this, MainActivity2.class));
                                 finish();
                             }
                         }).addOnFailureListener(new OnFailureListener() {
@@ -215,17 +215,7 @@ public class MainActivity extends AppCompatActivity {
 
         dialog.show();
     }
-
-
-
-//    public void onClick_Save(View view) {
-//        String id = users.getKey();
-//        String username = username_plain_text.getText().toString();
-//        String password = TextToHash.textToHash(password_plain_text.getText().toString());
-//        UserPattern userPattern = new UserPattern(id, username, password);
-//        users.push().setValue(userPattern);
-//
-//    }
+    //TODO поменять в бд email и имя пользователя
 
     private void init() {
         textView_main_page = findViewById(R.id.textView_of_main_page);
@@ -240,22 +230,5 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-//    private void request_permission() {
-//        isReadPernissionGranted = ContextCompat.checkSelfPermission(this,
-//                Manifest.permission.WRITE_EXTERNAL_STORAGE //Todo
-//        ) == PackageManager.PERMISSION_GRANTED;
-//
-//
-//        List<String> permissionRequest = new ArrayList<String>();
-//
-//        if (!isReadPernissionGranted) {
-//            permissionRequest.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
-//
-//        }
-//        if (!permissionRequest.isEmpty()) {
-//            mPermissionResultLauncher.launch(permissionRequest.toArray(new String[0]));
-//        }
-//
-//    }
 
 }
