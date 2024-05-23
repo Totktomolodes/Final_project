@@ -159,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
         View register_window = inflater.inflate(R.layout.register_window, null);
         dialog.setView(register_window);
 
-        EditText username = register_window.findViewById(R.id.username_plaintext);
+//        EditText username = register_window.findViewById(R.id.username_plaintext);
         EditText password = register_window.findViewById(R.id.password_plaintext);
         EditText email = register_window.findViewById(R.id.email_palintext);
 
@@ -174,10 +174,10 @@ public class MainActivity extends AppCompatActivity {
         dialog.setPositiveButton("Зарегистрироваться", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int which) {
-                if (TextUtils.isEmpty(username.getText().toString())) {
-                    Snackbar.make(findViewById(android.R.id.content), "Ошибка логина или пароля или почты", Snackbar.LENGTH_SHORT).show();
-                    return;
-                }
+//                if (TextUtils.isEmpty(username.getText().toString())) {
+//                    Snackbar.make(findViewById(android.R.id.content), "Ошибка логина или пароля или почты", Snackbar.LENGTH_SHORT).show();
+//                    return;
+//                }
                 if (TextUtils.isEmpty(password.getText().toString())) {
                     Snackbar.make(findViewById(android.R.id.content), "Ошибка логина или пароля или почты", Snackbar.LENGTH_SHORT).show();
                     return;
@@ -190,8 +190,7 @@ public class MainActivity extends AppCompatActivity {
                         .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                             @Override
                             public void onSuccess(AuthResult authResult) {
-                                User user = new User(email.getText().toString(),
-                                        username.getText().toString(), TextToHash.textToHash(password.getText().toString()));
+                                User user = new User(email.getText().toString(), TextToHash.textToHash(password.getText().toString()));
                                 users.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                         .setValue(user)
                                         .addOnSuccessListener(new OnSuccessListener<Void>() {

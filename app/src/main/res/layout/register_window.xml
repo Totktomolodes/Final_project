@@ -25,14 +25,14 @@
         android:id="@+id/password_plaintext"
         android:layout_width="300dp"
         android:layout_height="65dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="64dp"
         android:ems="10"
         android:hint="Пароль"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username_plaintext" />
+        app:layout_constraintTop_toBottomOf="@+id/email_palintext" />
 
     <EditText
         android:id="@+id/email_palintext"
@@ -40,24 +40,11 @@
         android:layout_height="65dp"
         android:layout_marginTop="172dp"
         android:ems="10"
-        android:hint="Имя Пользователя"
+        android:hint="Почта"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <EditText
-        android:id="@+id/username_plaintext"
-        android:layout_width="300dp"
-        android:layout_height="65dp"
-        android:layout_marginTop="36dp"
-        android:ems="10"
-        android:hint="email"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email_palintext" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
