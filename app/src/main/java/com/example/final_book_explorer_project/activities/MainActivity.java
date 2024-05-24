@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
         dialog.setView(sign_window);
 
         EditText password = sign_window.findViewById(R.id.password_plaintext);
-        EditText email = sign_window.findViewById(R.id.email_palintext);
+        EditText email = sign_window.findViewById(R.id.email_plaintext);
 
 
         dialog.setNegativeButton("Назад", new DialogInterface.OnClickListener() {
@@ -123,14 +123,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int which) {
                 if (TextUtils.isEmpty(password.getText().toString())) {
-                    Snackbar.make(findViewById(android.R.id.content), "Ошибка пароля", Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(findViewById(android.R.id.content), "Ошибка почты или пароля", Snackbar.LENGTH_SHORT).show();
                     return;
                 }
                 if (TextUtils.isEmpty(email.getText().toString())) {
-                    Snackbar.make(findViewById(android.R.id.content), "Ошибка почты", Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(findViewById(android.R.id.content), "Ошибка почты или пароля", Snackbar.LENGTH_SHORT).show();
                     return;
                 }
-                auth.signInWithEmailAndPassword(email.getText().toString(), TextToHash.textToHash(password.getText().toString()))
+                auth.signInWithEmailAndPassword(email.getText().toString(), password.getText().toString())
                         .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                             @Override
                             public void onSuccess(AuthResult authResult) {
@@ -161,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
 
 //        EditText username = register_window.findViewById(R.id.username_plaintext);
         EditText password = register_window.findViewById(R.id.password_plaintext);
-        EditText email = register_window.findViewById(R.id.email_palintext);
+        EditText email = register_window.findViewById(R.id.email_plaintext);
 
 
         dialog.setNegativeButton("Назад", new DialogInterface.OnClickListener() {
@@ -190,9 +190,8 @@ public class MainActivity extends AppCompatActivity {
                         .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                             @Override
                             public void onSuccess(AuthResult authResult) {
-                                User user = new User(email.getText().toString(), TextToHash.textToHash(password.getText().toString()));
-                                users.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                        .setValue(user)
+                                User user = new User(email.getText().toString(),password.getText().toString());
+                                users.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user)
                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                             @Override
                                             public void onSuccess(Void unused) {
@@ -228,6 +227,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
+    //bebr123@mail.ru
+    //bebr1212
 
 }

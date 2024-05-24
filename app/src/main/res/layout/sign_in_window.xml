@@ -25,26 +25,26 @@
         android:id="@+id/password_plaintext"
         android:layout_width="300dp"
         android:layout_height="65dp"
-        android:layout_marginTop="132dp"
+        android:layout_marginTop="60dp"
         android:ems="10"
         android:hint="Пароль"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/email_plaintext" />
 
     <EditText
-        android:id="@+id/email_palintext"
+        android:id="@+id/email_plaintext"
         android:layout_width="300dp"
         android:layout_height="65dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="115dp"
         android:ems="10"
         android:hint="email(необязательно)"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password_plaintext" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

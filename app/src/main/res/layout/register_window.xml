@@ -32,10 +32,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email_palintext" />
+        app:layout_constraintTop_toBottomOf="@+id/email_plaintext" />
 
     <EditText
-        android:id="@+id/email_palintext"
+        android:id="@+id/email_plaintext"
         android:layout_width="300dp"
         android:layout_height="65dp"
         android:layout_marginTop="172dp"
