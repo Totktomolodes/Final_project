@@ -2,6 +2,7 @@ package com.example.final_book_explorer_project.activities;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -18,7 +19,6 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.final_book_explorer_project.R;
 import com.example.final_book_explorer_project.handlers.firebase_managment.User;
-import com.example.final_book_explorer_project.handlers.TextToHash;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.snackbar.Snackbar;
@@ -28,8 +28,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 
-
 public class MainActivity extends AppCompatActivity {
+    private static SharedPreferences user_info_preferences;
     private EditText editText, username_plain_text, password_plain_text;
     private ImageButton hide_text_button;
     private Button button_register, button_login;
@@ -38,7 +38,8 @@ public class MainActivity extends AppCompatActivity {
     FirebaseDatabase db;
     ConstraintLayout root;
     private DatabaseReference users;
-    private boolean isReadPermissionGranted = false;
+    private final String saving_key_for_password = "bober";
+    private final String saving_key_for_email = "bober2";
 
 //    ActvityResultLauncher<String[]> mPermissionResultLauncher;
 
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_screen_panel);
         init();
+        Getting_Preferences();
 
 
 //        button_register.setOnClickListener(v -> {
@@ -134,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
                         .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                             @Override
                             public void onSuccess(AuthResult authResult) {
+                                Saving_Preferences(email.getText().toString(), password.getText().toString());
                                 startActivity(new Intent(MainActivity.this, MainActivity2.class));
                                 finish();
                             }
@@ -159,16 +162,14 @@ public class MainActivity extends AppCompatActivity {
         View register_window = inflater.inflate(R.layout.register_window, null);
         dialog.setView(register_window);
 
-//        EditText username = register_window.findViewById(R.id.username_plaintext);
         EditText password = register_window.findViewById(R.id.password_plaintext);
         EditText email = register_window.findViewById(R.id.email_plaintext);
-
-
         dialog.setNegativeButton("Назад", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int which) {
                 dialogInterface.dismiss();
             }
+
 
         });
         dialog.setPositiveButton("Зарегистрироваться", new DialogInterface.OnClickListener() {
@@ -190,11 +191,12 @@ public class MainActivity extends AppCompatActivity {
                         .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                             @Override
                             public void onSuccess(AuthResult authResult) {
-                                User user = new User(email.getText().toString(),password.getText().toString());
+                                User user = new User(email.getText().toString(), password.getText().toString());
                                 users.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user)
                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                             @Override
                                             public void onSuccess(Void unused) {
+                                                Saving_Preferences(email.getText().toString(), password.getText().toString());
                                                 Snackbar.make(findViewById(android.R.id.content), "Пользователь добавлен!", Snackbar.LENGTH_SHORT).show();
                                                 finish();
                                                 startActivity(new Intent(MainActivity.this, MainActivity2.class));
@@ -224,10 +226,45 @@ public class MainActivity extends AppCompatActivity {
         db = FirebaseDatabase.getInstance();
         users = db.getReference("Users");
         root = findViewById(R.id.root_element);
+        user_info_preferences = getSharedPreferences("user_info", MODE_PRIVATE);
 
 
     }
-    //bebr123@mail.ru
-    //bebr1212
+    public void Saving_Preferences(String email, String password){
+        SharedPreferences.Editor editor = user_info_preferences.edit();
+        editor.putString(saving_key_for_password, password);
+        editor.putString(saving_key_for_email, email);
+        editor.apply();
+    }
+
+    public void Getting_Preferences(){
+        String email = user_info_preferences.getString(saving_key_for_email, "пусто");
+        String password = user_info_preferences.getString(saving_key_for_password, "пусто");
+       if (email == "пусто" || password == "пусто"){
+           return;
+       }
+       else {
+           auth.signInWithEmailAndPassword(email, password)
+                   .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                       @Override
+                       public void onSuccess(AuthResult authResult) {
+                           startActivity(new Intent(MainActivity.this, MainActivity2.class));
+                           finish();
+                       }
+                   }).addOnFailureListener(new OnFailureListener() {
+                       @Override
+                       public void onFailure(@NonNull Exception e) {
+                           Snackbar.make(findViewById(android.R.id.content), "Ошибка авторизации" + e.getMessage(), Snackbar.LENGTH_SHORT).show();
+
+                       }
+                   });
+       }
+    }
+    public static void Clearing_Preference(){
+    }
+
 
 }
+//bebr123@mail.ru
+//bebr1212
+

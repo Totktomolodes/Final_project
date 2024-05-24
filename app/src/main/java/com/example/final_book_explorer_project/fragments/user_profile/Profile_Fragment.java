@@ -1,5 +1,7 @@
 package com.example.final_book_explorer_project.fragments.user_profile;
 
+import static com.example.final_book_explorer_project.activities.MainActivity.Clearing_Preference;
+
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -87,6 +89,7 @@ public class Profile_Fragment extends Fragment {
         builder.setPositiveButton("Конечно", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                Clearing_Preference();
                 getActivity().finish();
                 startActivity(new Intent(getActivity(), MainActivity.class));
             }
