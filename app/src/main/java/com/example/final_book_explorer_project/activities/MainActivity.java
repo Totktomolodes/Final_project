@@ -238,29 +238,28 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void Getting_Preferences(){
-        String email = user_info_preferences.getString(saving_key_for_email, "пусто");
-        String password = user_info_preferences.getString(saving_key_for_password, "пусто");
-       if (email == "пусто" || password == "пусто"){
+       if (!user_info_preferences.contains(saving_key_for_email) || !user_info_preferences.contains(saving_key_for_password)){
            return;
        }
-       else {
-           auth.signInWithEmailAndPassword(email, password)
-                   .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                       @Override
-                       public void onSuccess(AuthResult authResult) {
-                           startActivity(new Intent(MainActivity.this, MainActivity2.class));
-                           finish();
-                       }
-                   }).addOnFailureListener(new OnFailureListener() {
-                       @Override
-                       public void onFailure(@NonNull Exception e) {
-                           Snackbar.make(findViewById(android.R.id.content), "Ошибка авторизации" + e.getMessage(), Snackbar.LENGTH_SHORT).show();
+        String email = user_info_preferences.getString(saving_key_for_email, "пусто");
+        String password = user_info_preferences.getString(saving_key_for_password, "пусто");
+       auth.signInWithEmailAndPassword(email, password)
+               .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                   @Override
+                   public void onSuccess(AuthResult authResult) {
+                       startActivity(new Intent(MainActivity.this, MainActivity2.class));
+                       finish();
+                   }
+               }).addOnFailureListener(new OnFailureListener() {
+                   @Override
+                   public void onFailure(@NonNull Exception e) {
+                       Snackbar.make(findViewById(android.R.id.content), "Ошибка авторизации" + e.getMessage(), Snackbar.LENGTH_SHORT).show();
 
-                       }
-                   });
+                   }
+               });
        }
-    }
     public static void Clearing_Preference(){
+        user_info_preferences.edit().clear().apply();
     }
 
 

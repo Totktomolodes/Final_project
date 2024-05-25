@@ -70,8 +70,7 @@ public class InstallerFragment extends Fragment {
             while ((line = reader.readLine()) != null) {
                 stringBuilder.append(line).append('\n');
             }
-            String fileContent = stringBuilder.toString();
-            int page_count = fileContent.length() / 5000;
+            fileContent = stringBuilder.toString();
 
 
             // Handle the file content here
