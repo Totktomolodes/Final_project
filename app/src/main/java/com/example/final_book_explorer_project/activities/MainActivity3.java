@@ -20,13 +20,14 @@ public class MainActivity3 extends AppCompatActivity {
     TextView reading_textview, count_textview;
     ImageButton go_back_btn;
     Button back_btn, next_btn;
-    int page_size = 1800;
+    int page_size = 1700;
     public String file_content = fileContent;
     private String page;
-    int counter = 1;
+    int counter = 0;
     String text = "%d из %d";
     String text2;
-    int counter_maximum = (file_content.length() / page_size) - 1;
+    List<String> pages_list;
+    int counter_maximum = (file_content.length() / page_size);
 
 
     @Override
@@ -90,14 +91,17 @@ public class MainActivity3 extends AppCompatActivity {
     }
 
     public void divider_text_len() {
-        if (file_content.length() < page_size) {
-            reading_textview.setText(file_content);
-        } else {
-            page = file_content.substring(counter * page_size, (counter + 1) * page_size);
-            reading_textview.setText(page);
+//        if (file_content.length() < page_size) {
+//            reading_textview.setText(file_content);
+//        } else {
+//            page = file_content.substring(counter * page_size, (counter + 1) * page_size);
+//            reading_textview.setText(page);
+//
+//
+//        }
+        pages_list = splitText(file_content, page_size);
+        reading_textview.setText(pages_list.get(counter));
 
-
-        }
     }
 
     public boolean checking_max() {
@@ -111,7 +115,7 @@ public class MainActivity3 extends AppCompatActivity {
 
     public boolean checking_min() {
 
-        if (counter == 1) {
+        if (counter == 0) {
             return false;
         }
 
@@ -119,7 +123,7 @@ public class MainActivity3 extends AppCompatActivity {
     }
 
     public void make_counter() {
-        text2 = String.format(text, counter, counter_maximum);
+        text2 = String.format(text, counter + 1, counter_maximum + 1);
         count_textview.setText(text2);
 
 
@@ -129,9 +133,31 @@ public class MainActivity3 extends AppCompatActivity {
     public static List<String> splitText(String text, int pageSize) {
         List<String> pages = new ArrayList<>();
         int length = text.length();
-        for (int i = 0; i < length; i += pageSize) {
-            pages.add(text.substring(i, Math.min(length, i + pageSize)));
+        int start = 0;
+
+        while (start < length) {
+            int end = Math.min(start + pageSize, length);
+
+            // Найти последний пробел в пределах текущей страницы
+            if (end < length && text.charAt(end) != ' ') {
+                int lastSpace = text.lastIndexOf(' ', end);
+                if (lastSpace > start) {
+                    end = lastSpace;
+                }
+            }
+
+            // Добавить текст текущей страницы в список
+            pages.add(text.substring(start, end).trim());
+
+            // Перейти к следующей странице
+            start = end;
+
+            // Пропустить все пробелы в начале следующей страницы
+            while (start < length && text.charAt(start) == ' ') {
+                start++;
+            }
         }
+
         return pages;
     }
 } // check chatgpt
