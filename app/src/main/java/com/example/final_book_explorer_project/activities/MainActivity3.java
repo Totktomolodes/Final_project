@@ -13,6 +13,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.final_book_explorer_project.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity3 extends AppCompatActivity {
     TextView reading_textview, count_textview;
     ImageButton go_back_btn;
@@ -23,7 +26,7 @@ public class MainActivity3 extends AppCompatActivity {
     int counter = 1;
     String text = "%d из %d";
     String text2;
-     int counter_maximum = (file_content.length() / page_size) - 1;
+    int counter_maximum = (file_content.length() / page_size) - 1;
 
 
     @Override
@@ -45,7 +48,7 @@ public class MainActivity3 extends AppCompatActivity {
         next_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!checking_max()){
+                if (!checking_max()) {
                     return;
                 }
                 counter = counter + 1;
@@ -59,7 +62,7 @@ public class MainActivity3 extends AppCompatActivity {
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!checking_min()){
+                if (!checking_min()) {
                     return;
                 }
                 counter = counter - 1;
@@ -114,6 +117,7 @@ public class MainActivity3 extends AppCompatActivity {
 
         return true;
     }
+
     public void make_counter() {
         text2 = String.format(text, counter, counter_maximum);
         count_textview.setText(text2);
@@ -121,4 +125,14 @@ public class MainActivity3 extends AppCompatActivity {
 
     }
 
-}
+
+    public static List<String> splitText(String text, int pageSize) {
+        List<String> pages = new ArrayList<>();
+        int length = text.length();
+        for (int i = 0; i < length; i += pageSize) {
+            pages.add(text.substring(i, Math.min(length, i + pageSize)));
+        }
+        return pages;
+    }
+} // check chatgpt
+
