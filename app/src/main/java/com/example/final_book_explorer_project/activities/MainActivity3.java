@@ -1,6 +1,7 @@
 package com.example.final_book_explorer_project.activities;
 
 import static com.example.final_book_explorer_project.fragments.installer.InstallerFragment.fileContent;
+import static com.example.final_book_explorer_project.fragments.installer.InstallerFragment.maker_book_in_catalog;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -37,7 +38,7 @@ public class MainActivity3 extends AppCompatActivity {
         init();
         make_counter();
         divider_text_len();
-//        maker_book_in_catalog();
+        maker_book_in_catalog();
 
 
         go_back_btn.setOnClickListener(new View.OnClickListener() {
@@ -161,5 +162,5 @@ public class MainActivity3 extends AppCompatActivity {
 
         return pages;
     }
-} // check chatgpt
+}
 

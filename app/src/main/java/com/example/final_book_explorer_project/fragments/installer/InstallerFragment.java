@@ -107,9 +107,9 @@ public class InstallerFragment extends Fragment {
         }
     }
 
-//    public static void maker_book_in_catalog(){
-//
-//        bookList.add(new Book(fileName, "пусто", "пусто"));
-//    }
+    public static void maker_book_in_catalog(){
+
+        bookList.add(new Book(fileName, "Author"));
+    }
 }
 

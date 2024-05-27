@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.final_book_explorer_project.R;
+import com.example.final_book_explorer_project.fragments.installer.InstallerFragment;
 import com.example.final_book_explorer_project.fragments.mycatalog.Book;
 import com.example.final_book_explorer_project.fragments.mycatalog.BookAdapter;
 
@@ -30,20 +31,23 @@ public class BookListFragment extends Fragment {
     private BookAdapter bookAdapter;
     private List<Book> bookList;
 
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_book_list, container, false);
 
         recyclerView = view.findViewById(R.id.recyclerView);
+        bookList = InstallerFragment.bookList;
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        bookList = new ArrayList<>();
-        // Заполнение списка книг (пример)
-        bookList.add(new Book("Title1", "Author1"));
-        bookList.add(new Book("Title2", "Author2"));
 
-        bookAdapter = new BookAdapter(bookList, new BookAdapter.OnItemClickListener() {
+//        bookList = new ArrayList<>();
+        // Заполнение списка книг (пример)
+//        bookList.add(new Book("Title1", "Author1"));
+//        bookList.add(new Book("Title2", "Author2"));
+
+        bookAdapter = new BookAdapter(new BookAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(Book book) {
                 // Открытие фрагмента редактирования

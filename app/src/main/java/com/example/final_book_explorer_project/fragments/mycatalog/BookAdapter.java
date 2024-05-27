@@ -12,19 +12,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.final_book_explorer_project.R;
+import com.example.final_book_explorer_project.fragments.installer.InstallerFragment;
 
 import java.util.List;
 
 public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder> {
-    private List<Book> books;
     private OnItemClickListener listener;
 
     public interface OnItemClickListener {
         void onItemClick(Book book);
     }
 
-    public BookAdapter(List<Book> books, OnItemClickListener listener) {
-        this.books = books;
+    public BookAdapter( OnItemClickListener listener) {
         this.listener = listener;
     }
 
@@ -37,13 +36,13 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull BookViewHolder holder, int position) {
-        Book book = books.get(position);
+        Book book = InstallerFragment.bookList.get(position);
         holder.bind(book, listener);
     }
 
     @Override
     public int getItemCount() {
-        return books.size();
+        return InstallerFragment.bookList.size();
     }
 
     public static class BookViewHolder extends RecyclerView.ViewHolder {
@@ -53,7 +52,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
         public BookViewHolder(View itemView) {
             super(itemView);
             titleTextView = itemView.findViewById(R.id.titleTextView);
-            authorTextView = itemView.findViewById(R.id.authorTextView);
+            authorTextView = itemView.findViewById(R.id.authorEditText);
         }
 
         public void bind(final Book book, final OnItemClickListener listener) {
