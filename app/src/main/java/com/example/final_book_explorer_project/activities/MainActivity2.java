@@ -1,5 +1,6 @@
 package com.example.final_book_explorer_project.activities;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -12,13 +13,15 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.final_book_explorer_project.R;
 import com.example.final_book_explorer_project.fragments.catalog.CatalogFragment;
 import com.example.final_book_explorer_project.fragments.installer.InstallerFragment;
-import com.example.final_book_explorer_project.fragments.mycatalog.MyCatalogFragment;
+import com.example.final_book_explorer_project.fragments.mycatalog.BookListFragment;
+import com.example.final_book_explorer_project.fragments.mycatalog.BookListFragment;
 import com.example.final_book_explorer_project.fragments.user_profile.Profile_Fragment;
 
 public class MainActivity2 extends AppCompatActivity {
     private Profile_Fragment profileFragment = new Profile_Fragment();
     private ImageButton catalog, mycatalog, installer, user_profile, closing_button;
     private FrameLayout frameTransition;
+    private static SharedPreferences my_catalog_preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,8 @@ public class MainActivity2 extends AppCompatActivity {
         installer = findViewById(R.id.installer);
         user_profile = findViewById(R.id.user_profile);
         frameTransition = findViewById(R.id.Frame_transition);
+        my_catalog_preferences = getSharedPreferences("catalog_info", MODE_PRIVATE);
+
 
 
         setNewFragment(profileFragment); // по умолчанию страница
@@ -54,8 +59,8 @@ public class MainActivity2 extends AppCompatActivity {
         mycatalog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MyCatalogFragment myCatalogFragment = new MyCatalogFragment();
-                setNewFragment(myCatalogFragment);
+                BookListFragment bookListFragment = new BookListFragment();
+                setNewFragment(bookListFragment);
             }
         });
         catalog.setOnClickListener(new View.OnClickListener() {

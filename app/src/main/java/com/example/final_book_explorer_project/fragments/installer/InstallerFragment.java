@@ -18,11 +18,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.final_book_explorer_project.R;
-import com.example.final_book_explorer_project.activities.MainActivity;
 import com.example.final_book_explorer_project.activities.MainActivity3;
-import com.example.final_book_explorer_project.activities.MainActivity2;
 import com.example.final_book_explorer_project.fragments.mycatalog.Book;
-import com.example.final_book_explorer_project.fragments.user_profile.Settings_fragment;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -36,7 +33,7 @@ public class InstallerFragment extends Fragment {
     public Button start_conductor;
     private static final int REQUEST_CODE_OPEN_DOCUMENT = 1;
     public static int page_count;
-    public static List<Book>  bookList;
+    public static List<Book> bookList = new ArrayList<>();
     public static String fileContent;
     public static String fileName; // Название открытого файла
 
@@ -110,8 +107,9 @@ public class InstallerFragment extends Fragment {
         }
     }
 
-    public static void maker_book_in_catalog(){
-        bookList.add(new Book(fileName, "пусто", "пусто"));
-    }
+//    public static void maker_book_in_catalog(){
+//
+//        bookList.add(new Book(fileName, "пусто", "пусто"));
+//    }
 }
 

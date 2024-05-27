@@ -36,7 +36,6 @@ public class Profile_Fragment extends Fragment {
     public void onViewCreated (@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         closing_btn = view.findViewById(R.id.log_out_button);
-        settings_button = view.findViewById(R.id.settings_button);
         log_out_btn = view.findViewById(R.id.changing_button);
 
 
@@ -44,12 +43,6 @@ public class Profile_Fragment extends Fragment {
             setLogOutDialog();
 
 
-        });
-
-        settings_button.setOnClickListener(view1 -> {
-            MainActivity2 mainActivity2 = new MainActivity2();
-           Settings_fragment settings_fragment = new Settings_fragment();
-           mainActivity2.setNewFragment(settings_fragment);
         });
         closing_btn.setOnClickListener(new View.OnClickListener() {
             @Override

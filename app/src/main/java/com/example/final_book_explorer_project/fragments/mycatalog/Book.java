@@ -1,17 +1,15 @@
 package com.example.final_book_explorer_project.fragments.mycatalog;
-public class Book {
+import java.io.Serializable;
+
+public class Book implements Serializable {
     private String title;
     private String author;
-    private String description;
 
-    // Конструктор
-    public Book(String title, String author, String description) {
+    public Book(String title, String author) {
         this.title = title;
         this.author = author;
-        this.description = description;
     }
 
-    // Геттеры и сеттеры
     public String getTitle() {
         return title;
     }
@@ -27,12 +25,6 @@ public class Book {
     public void setAuthor(String author) {
         this.author = author;
     }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 }
+
+

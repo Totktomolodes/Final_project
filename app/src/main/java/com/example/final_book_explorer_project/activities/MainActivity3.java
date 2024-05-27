@@ -37,6 +37,7 @@ public class MainActivity3 extends AppCompatActivity {
         init();
         make_counter();
         divider_text_len();
+//        maker_book_in_catalog();
 
 
         go_back_btn.setOnClickListener(new View.OnClickListener() {

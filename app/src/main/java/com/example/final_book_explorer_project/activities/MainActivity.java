@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_screen_panel);
         init();
-        Getting_Preferences();
+        Getting_Auth_Preferences();
 
 
 //        button_register.setOnClickListener(v -> {
@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
                         .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                             @Override
                             public void onSuccess(AuthResult authResult) {
-                                Saving_Preferences(email.getText().toString(), password.getText().toString());
+                                Saving_Auth_Preferences(email.getText().toString(), password.getText().toString());
                                 startActivity(new Intent(MainActivity.this, MainActivity2.class));
                                 finish();
                             }
@@ -196,7 +196,7 @@ public class MainActivity extends AppCompatActivity {
                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                             @Override
                                             public void onSuccess(Void unused) {
-                                                Saving_Preferences(email.getText().toString(), password.getText().toString());
+                                                Saving_Auth_Preferences(email.getText().toString(), password.getText().toString());
                                                 Snackbar.make(findViewById(android.R.id.content), "Пользователь добавлен!", Snackbar.LENGTH_SHORT).show();
                                                 finish();
                                                 startActivity(new Intent(MainActivity.this, MainActivity2.class));
@@ -215,7 +215,6 @@ public class MainActivity extends AppCompatActivity {
 
         dialog.show();
     }
-    //TODO поменять в бд email и имя пользователя
 
     private void init() {
         textView_main_page = findViewById(R.id.textView_of_main_page);
@@ -229,15 +228,16 @@ public class MainActivity extends AppCompatActivity {
         user_info_preferences = getSharedPreferences("user_info", MODE_PRIVATE);
 
 
+
     }
-    public void Saving_Preferences(String email, String password){
+    public void Saving_Auth_Preferences(String email, String password){
         SharedPreferences.Editor editor = user_info_preferences.edit();
         editor.putString(saving_key_for_password, password);
         editor.putString(saving_key_for_email, email);
         editor.apply();
     }
 
-    public void Getting_Preferences(){
+    public void Getting_Auth_Preferences(){
        if (!user_info_preferences.contains(saving_key_for_email) || !user_info_preferences.contains(saving_key_for_password)){
            return;
        }

@@ -12,42 +12,33 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.final_book_explorer_project.R;
-import com.example.final_book_explorer_project.activities.EditBookActivity;
 
 import java.util.List;
 
 public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder> {
-
     private List<Book> books;
-    private Context context;
-    private static final int EDIT_BOOK_REQUEST = 1;
+    private OnItemClickListener listener;
 
-    public BookAdapter(List<Book> books, Context context) {
+    public interface OnItemClickListener {
+        void onItemClick(Book book);
+    }
+
+    public BookAdapter(List<Book> books, OnItemClickListener listener) {
         this.books = books;
-        this.context = context;
+        this.listener = listener;
     }
 
     @NonNull
     @Override
     public BookViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_book, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_book, parent, false);
         return new BookViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull BookViewHolder holder, int position) {
         Book book = books.get(position);
-        holder.titleTextView.setText(book.getTitle());
-        holder.authorTextView.setText(book.getAuthor());
-
-        holder.itemView.setOnClickListener(v -> {
-            Intent intent = new Intent(context, EditBookActivity.class);
-            intent.putExtra("title", book.getTitle());
-            intent.putExtra("author", book.getAuthor());
-            intent.putExtra("description", book.getDescription());
-            intent.putExtra("position", holder.getAdapterPosition());
-            ((Activity) context).startActivityForResult(intent, EDIT_BOOK_REQUEST);
-        });
+        holder.bind(book, listener);
     }
 
     @Override
@@ -55,22 +46,26 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
         return books.size();
     }
 
-    public void updateBook(int position, String title, String author, String description) {
-        Book book = books.get(position);
-        book.setTitle(title);
-        book.setAuthor(author);
-        book.setDescription(description);
-        notifyItemChanged(position);
-    }
-
     public static class BookViewHolder extends RecyclerView.ViewHolder {
         TextView titleTextView;
         TextView authorTextView;
 
-        public BookViewHolder(@NonNull View itemView) {
+        public BookViewHolder(View itemView) {
             super(itemView);
             titleTextView = itemView.findViewById(R.id.titleTextView);
             authorTextView = itemView.findViewById(R.id.authorTextView);
         }
+
+        public void bind(final Book book, final OnItemClickListener listener) {
+            titleTextView.setText(book.getTitle());
+            authorTextView.setText(book.getAuthor());
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onItemClick(book);
+                }
+            });
+        }
     }
 }
+
