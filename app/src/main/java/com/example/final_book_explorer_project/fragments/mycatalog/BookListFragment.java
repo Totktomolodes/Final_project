@@ -35,8 +35,7 @@ public class BookListFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_book_list, container, false);
-
+        View view = inflater.inflate(R.layout.fragment_my_catalog, container, false);
         recyclerView = view.findViewById(R.id.recyclerView);
         bookList = InstallerFragment.bookList;
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

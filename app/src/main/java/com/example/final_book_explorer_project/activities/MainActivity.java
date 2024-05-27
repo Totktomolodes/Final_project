@@ -234,6 +234,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = user_info_preferences.edit();
         editor.putString(saving_key_for_password, password);
         editor.putString(saving_key_for_email, email);
+
         editor.apply();
     }
 

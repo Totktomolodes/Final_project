@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.final_book_explorer_project.R;
+import com.example.final_book_explorer_project.fragments.installer.InstallerFragment;
 
 public class EditBookFragment extends Fragment {
     private static final String ARG_BOOK = "book";
@@ -32,7 +33,7 @@ public class EditBookFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_edit_book, container, false);
+        View view = inflater.inflate(R.layout.edit_book, container, false);
 
         titleEditText = view.findViewById(R.id.titleEditText);
         authorEditText = view.findViewById(R.id.authorEditText);
@@ -50,9 +51,9 @@ public class EditBookFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (book != null) {
+                    InstallerFragment.fileName_list.add(titleEditText.getText().toString());
                     book.setTitle(titleEditText.getText().toString());
                     book.setAuthor(authorEditText.getText().toString());
-                    // Обновление данных в списке книг
                     getParentFragmentManager().popBackStack();
                 }
             }

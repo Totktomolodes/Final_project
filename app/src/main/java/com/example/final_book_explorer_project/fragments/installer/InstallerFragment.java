@@ -5,11 +5,6 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.provider.OpenableColumns;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,9 +12,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 import com.example.final_book_explorer_project.R;
 import com.example.final_book_explorer_project.activities.MainActivity3;
 import com.example.final_book_explorer_project.fragments.mycatalog.Book;
+import com.example.final_book_explorer_project.handlers.SharedPreferencesHelper;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -35,6 +35,7 @@ public class InstallerFragment extends Fragment {
     public static int page_count;
     public static List<Book> bookList = new ArrayList<>();
     public static String fileContent;
+    public static List<String> fileName_list = new ArrayList<String>();
     public static String fileName; // Название открытого файла
 
     @Override
@@ -43,7 +44,7 @@ public class InstallerFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_installer, container, false);
     }
 
-    public void onViewCreated (@NonNull View view, Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         view.findViewById(R.id.start_conductor).setOnClickListener(v -> openFilePicker());
     }
@@ -107,9 +108,12 @@ public class InstallerFragment extends Fragment {
         }
     }
 
-    public static void maker_book_in_catalog(){
+    public static void maker_book_in_catalog() {
+        if (!fileName_list.contains(fileName)) {
+            bookList.add(new Book(fileName, "Author"));
+            fileName_list.add(fileName);
+        }
+        SharedPreferencesHelper.saveArrayList(getContext(), fileName_list); //TODO
 
-        bookList.add(new Book(fileName, "Author"));
     }
 }
-
