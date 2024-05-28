@@ -14,11 +14,10 @@ import com.example.final_book_explorer_project.R;
 import com.example.final_book_explorer_project.fragments.catalog.CatalogFragment;
 import com.example.final_book_explorer_project.fragments.installer.InstallerFragment;
 import com.example.final_book_explorer_project.fragments.mycatalog.BookListFragment;
-import com.example.final_book_explorer_project.fragments.mycatalog.BookListFragment;
-import com.example.final_book_explorer_project.fragments.user_profile.Profile_Fragment;
+import com.example.final_book_explorer_project.fragments.user_profile.Exit_Fragment;
 
 public class MainActivity2 extends AppCompatActivity {
-    private Profile_Fragment profileFragment = new Profile_Fragment();
+    private Exit_Fragment profileFragment = new Exit_Fragment();
     private ImageButton catalog, mycatalog, installer, user_profile, closing_button;
     private FrameLayout frameTransition;
     private static SharedPreferences my_catalog_preferences;
@@ -52,7 +51,7 @@ public class MainActivity2 extends AppCompatActivity {
         user_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Profile_Fragment profileFragment1 = new Profile_Fragment();
+                Exit_Fragment profileFragment1 = new Exit_Fragment();
                 setNewFragment(profileFragment1);
             }
         });

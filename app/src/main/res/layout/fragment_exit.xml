@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="695dp"
-    tools:context=".fragments.user_profile.Profile_Fragment">
+    tools:context=".fragments.user_profile.Exit_Fragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -15,11 +15,12 @@
             android:id="@+id/profile_main_textView"
             android:layout_width="158dp"
             android:layout_height="85dp"
-            android:layout_marginStart="48dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="48dp"
             android:gravity="center"
-            android:text="ПРОФИЛЬ"
+            android:text="ВЫХОД"
             android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

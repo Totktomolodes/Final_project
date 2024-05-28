@@ -23,7 +23,6 @@ public class MainActivity3 extends AppCompatActivity {
     Button back_btn, next_btn;
     int page_size = 1700;
     public String file_content = fileContent;
-    private String page;
     int counter = 0;
     String text = "%d из %d";
     String text2;
@@ -147,14 +146,11 @@ public class MainActivity3 extends AppCompatActivity {
                     end = lastSpace;
                 }
             }
-
-            // Добавить текст текущей страницы в список
             pages.add(text.substring(start, end).trim());
 
-            // Перейти к следующей странице
             start = end;
 
-            // Пропустить все пробелы в начале следующей страницы
+
             while (start < length && text.charAt(start) == ' ') {
                 start++;
             }

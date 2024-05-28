@@ -18,10 +18,8 @@ import android.widget.TextView;
 
 import com.example.final_book_explorer_project.R;
 import com.example.final_book_explorer_project.activities.MainActivity;
-import com.example.final_book_explorer_project.activities.MainActivity2;
-import com.example.final_book_explorer_project.activities.MainActivity3;
 
-public class Profile_Fragment extends Fragment {
+public class Exit_Fragment extends Fragment {
 
     private Button closing_btn, settings_button, log_out_btn;
     private TextView profile_main_textView, username_textView, password_textView, textView_of_username, textView_of_password;
@@ -30,7 +28,7 @@ public class Profile_Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile_, container, false);
+        return inflater.inflate(R.layout.fragment_exit, container, false);
 
     }
     public void onViewCreated (@NonNull View view, Bundle savedInstanceState) {

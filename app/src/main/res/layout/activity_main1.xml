@@ -5,8 +5,36 @@
     android:id="@+id/constr_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgr2">
+    android:background="#95D6DF">
 
+
+    <Button
+        android:id="@+id/button_register"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="200dp"
+        android:backgroundTint="#3F51B5"
+        android:text="Регистрация"
+        android:textColorHighlight="@color/black"
+        android:textColorLink="#FFFFFF"
+        android:textSize="20sp"
+        app:cornerRadius="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainscreen_text_view" />
+
+    <Button
+        android:id="@+id/button_login"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="80dp"
+        android:backgroundTint="#3F51B5"
+        android:text="Вход"
+        android:textSize="20sp"
+        app:cornerRadius="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_register" />
 
     <TextView
         android:id="@+id/mainscreen_text_view"
@@ -17,15 +45,15 @@
         android:background="#FFFFFF"
         android:backgroundTint="#00FFFFFF"
         android:text="Добро пожаловать!"
-        android:textColor="#F8FFFFFF"
+        android:textColor="#F8000000"
         android:textSize="25dp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.284"
+        app:layout_constraintHorizontal_bias="0.413"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintVertical_bias="0.043" />
 
     <TextView
         android:id="@+id/textView_of_main_page"
@@ -37,34 +65,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.825" />
-
-    <LinearLayout
-        android:layout_width="391dp"
-        android:layout_height="300dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <Button
-            android:id="@+id/button_register"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#3F51B5"
-            android:text="Регистрация"
-            android:textColorHighlight="@color/black"
-            android:textColorLink="#FFFFFF"
-            android:textSize="20sp"
-            app:cornerRadius="1dp" />
-
-        <Button
-            android:id="@+id/button_login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#3F51B5"
-            android:text="Вход"
-            android:textSize="20sp"
-            app:cornerRadius="1dp" />
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

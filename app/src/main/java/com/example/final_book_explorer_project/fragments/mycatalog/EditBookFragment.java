@@ -1,5 +1,8 @@
 package com.example.final_book_explorer_project.fragments.mycatalog;
 
+import static com.example.final_book_explorer_project.fragments.installer.InstallerFragment.bookList;
+import static com.example.final_book_explorer_project.fragments.installer.InstallerFragment.fileName_list;
+
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -22,7 +25,7 @@ public class EditBookFragment extends Fragment {
     private Book book;
     private EditText titleEditText;
     private EditText authorEditText;
-    private Button saveButton, switching_to_activity;
+    private Button saveButton, switching_to_activity, del_btn;
 
 
     public static EditBookFragment newInstance(Book book) {
@@ -42,6 +45,7 @@ public class EditBookFragment extends Fragment {
         authorEditText = view.findViewById(R.id.authorEditText);
         saveButton = view.findViewById(R.id.saveButton);
         switching_to_activity = view.findViewById(R.id.switching_to_activity);
+        del_btn = view.findViewById(R.id.del_btn);
 
         if (getArguments() != null) {
             book = (Book) getArguments().getSerializable(ARG_BOOK);
@@ -55,7 +59,7 @@ public class EditBookFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (book != null) {
-                    InstallerFragment.fileName_list.add(titleEditText.getText().toString());
+                    fileName_list.add(titleEditText.getText().toString());
                     book.setTitle(titleEditText.getText().toString());
                     book.setAuthor(authorEditText.getText().toString());
                     getParentFragmentManager().popBackStack();
@@ -66,6 +70,15 @@ public class EditBookFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), MainActivity3.class));
+            }
+        });
+
+        del_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fileName_list.remove(book.getTitle());
+                bookList.remove(book);
+                getParentFragmentManager().popBackStack();
             }
         });
 
