@@ -21,10 +21,18 @@
 
     <Button
         android:id="@+id/saveButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
         android:layout_marginTop="16dp"
         android:backgroundTint="#3F51B5"
         android:text="Сохранить"
+        app:cornerRadius="5dp" />
+
+    <Button
+        android:id="@+id/switching_to_activity"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:backgroundTint="#3F51B5"
+        android:text="Перейти к книге"
         app:cornerRadius="5dp" />
 </LinearLayout>

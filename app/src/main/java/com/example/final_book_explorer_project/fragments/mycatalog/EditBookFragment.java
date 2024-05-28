@@ -1,5 +1,6 @@
 package com.example.final_book_explorer_project.fragments.mycatalog;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.final_book_explorer_project.R;
+import com.example.final_book_explorer_project.activities.MainActivity3;
 import com.example.final_book_explorer_project.fragments.installer.InstallerFragment;
 
 public class EditBookFragment extends Fragment {
@@ -20,7 +22,8 @@ public class EditBookFragment extends Fragment {
     private Book book;
     private EditText titleEditText;
     private EditText authorEditText;
-    private Button saveButton;
+    private Button saveButton, switching_to_activity;
+
 
     public static EditBookFragment newInstance(Book book) {
         EditBookFragment fragment = new EditBookFragment();
@@ -38,6 +41,7 @@ public class EditBookFragment extends Fragment {
         titleEditText = view.findViewById(R.id.titleEditText);
         authorEditText = view.findViewById(R.id.authorEditText);
         saveButton = view.findViewById(R.id.saveButton);
+        switching_to_activity = view.findViewById(R.id.switching_to_activity);
 
         if (getArguments() != null) {
             book = (Book) getArguments().getSerializable(ARG_BOOK);
@@ -58,6 +62,14 @@ public class EditBookFragment extends Fragment {
                 }
             }
         });
+        switching_to_activity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), MainActivity3.class));
+            }
+        });
+
+
 
         return view;
     }

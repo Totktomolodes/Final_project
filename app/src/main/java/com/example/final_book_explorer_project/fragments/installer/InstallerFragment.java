@@ -36,7 +36,7 @@ public class InstallerFragment extends Fragment {
     public static List<Book> bookList = new ArrayList<>();
     public static String fileContent;
     public static List<String> fileName_list = new ArrayList<String>();
-    public static String fileName; // Название открытого файла
+    public static String fileName;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -113,7 +113,7 @@ public class InstallerFragment extends Fragment {
             bookList.add(new Book(fileName, "Author"));
             fileName_list.add(fileName);
         }
-        SharedPreferencesHelper.saveArrayList(getContext(), fileName_list); //TODO
+        //        SharedPreferencesHelper.saveArrayList(getContext(), fileName_list); //TODO
 
     }
 }

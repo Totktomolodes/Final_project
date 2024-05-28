@@ -2,17 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#95D6DF"
     android:orientation="vertical"
     android:padding="16dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Book Catalog"
-        android:textSize="24sp"
-        android:textStyle="bold"
         android:layout_gravity="center"
-        android:paddingBottom="16dp"/>
+        android:paddingBottom="16dp"
+        android:text="Ваши Книги"
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
