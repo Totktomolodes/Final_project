@@ -13,8 +13,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.final_book_explorer_project.R;
 import com.example.final_book_explorer_project.fragments.catalog.CatalogFragment;
 import com.example.final_book_explorer_project.fragments.installer.InstallerFragment;
-import com.example.final_book_explorer_project.fragments.mycatalog.BookListFragment;
-import com.example.final_book_explorer_project.fragments.mycatalog.BookListFragment;
+import com.example.final_book_explorer_project.fragments.mycatalog.MyCatalogFragment;
 import com.example.final_book_explorer_project.fragments.user_profile.Profile_Fragment;
 
 public class MainActivity2 extends AppCompatActivity {
@@ -59,7 +58,7 @@ public class MainActivity2 extends AppCompatActivity {
         mycatalog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                BookListFragment bookListFragment = new BookListFragment();
+                MyCatalogFragment bookListFragment = new MyCatalogFragment();
                 setNewFragment(bookListFragment);
             }
         });

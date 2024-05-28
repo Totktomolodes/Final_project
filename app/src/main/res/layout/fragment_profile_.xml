@@ -18,7 +18,7 @@
             android:layout_marginStart="48dp"
             android:layout_marginTop="24dp"
             android:gravity="center"
-            android:text="ПРОФИЛЬ"
+            android:text="ВЫХОД"
             android:textSize="30sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

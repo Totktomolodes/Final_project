@@ -38,7 +38,7 @@ public class MainActivity3 extends AppCompatActivity {
         init();
         make_counter();
         divider_text_len();
-        maker_book_in_catalog();
+        maker_book_in_catalog(this);
 
 
         go_back_btn.setOnClickListener(new View.OnClickListener() {
@@ -140,7 +140,6 @@ public class MainActivity3 extends AppCompatActivity {
         while (start < length) {
             int end = Math.min(start + pageSize, length);
 
-            // Найти последний пробел в пределах текущей страницы
             if (end < length && text.charAt(end) != ' ') {
                 int lastSpace = text.lastIndexOf(' ', end);
                 if (lastSpace > start) {
@@ -148,13 +147,11 @@ public class MainActivity3 extends AppCompatActivity {
                 }
             }
 
-            // Добавить текст текущей страницы в список
+
             pages.add(text.substring(start, end).trim());
 
-            // Перейти к следующей странице
             start = end;
 
-            // Пропустить все пробелы в начале следующей страницы
             while (start < length && text.charAt(start) == ' ') {
                 start++;
             }

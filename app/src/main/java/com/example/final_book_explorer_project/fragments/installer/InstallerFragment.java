@@ -1,6 +1,11 @@
 package com.example.final_book_explorer_project.fragments.installer;
 
+import static com.example.final_book_explorer_project.handlers.SharedPreferencesHelper.getBookList;
+
+import static com.example.final_book_explorer_project.handlers.SharedPreferencesHelper.saveBookList;
+
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -108,12 +113,15 @@ public class InstallerFragment extends Fragment {
         }
     }
 
-    public static void maker_book_in_catalog() {
+    public static void maker_book_in_catalog(Context context) {
         if (!fileName_list.contains(fileName)) {
             bookList.add(new Book(fileName, "Author"));
+
+            saveBookList(context, bookList);
             fileName_list.add(fileName);
         }
         //        SharedPreferencesHelper.saveArrayList(getContext(), fileName_list); //TODO
 
     }
+
 }
