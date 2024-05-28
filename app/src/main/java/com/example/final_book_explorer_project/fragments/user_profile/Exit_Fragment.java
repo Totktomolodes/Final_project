@@ -1,6 +1,7 @@
 package com.example.final_book_explorer_project.fragments.user_profile;
 
 import static com.example.final_book_explorer_project.activities.MainActivity.Clearing_Preference;
+import static com.example.final_book_explorer_project.fragments.installer.InstallerFragment.fileName_list;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -61,6 +62,8 @@ public class Exit_Fragment extends Fragment {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 getActivity().finish();
+                getActivity().finish();
+                fileName_list.clear();
             }
         });
         builder.setNegativeButton("Нет", new DialogInterface.OnClickListener() {

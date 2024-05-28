@@ -69,6 +69,7 @@ public class EditBookFragment extends Fragment {
         switching_to_activity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                getActivity().finish();
                 startActivity(new Intent(getActivity(), MainActivity3.class));
             }
         });
