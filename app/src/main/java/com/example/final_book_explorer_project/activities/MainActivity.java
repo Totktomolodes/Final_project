@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main1);
         init();
-        Getting_Auth_Preferences();
+        GettingAuthPreferences();
 
 
 //        button_register.setOnClickListener(v -> {
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         button_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showSignIn_window();
+                showSignInWindow();
 
             }
 
@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void showSignIn_window() {
+    private void showSignInWindow() {
         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
         dialog.setTitle("Войти");
         dialog.setMessage("Введите все данные для входа");
@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
                         .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                             @Override
                             public void onSuccess(AuthResult authResult) {
-                                Saving_Auth_Preferences(email.getText().toString(), password.getText().toString());
+                                SavingAuthPreferences(email.getText().toString(), password.getText().toString());
                                 startActivity(new Intent(MainActivity.this, MainActivity2.class));
                                 finish();
                             }
@@ -196,7 +196,7 @@ public class MainActivity extends AppCompatActivity {
                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                             @Override
                                             public void onSuccess(Void unused) {
-                                                Saving_Auth_Preferences(email.getText().toString(), password.getText().toString());
+                                                SavingAuthPreferences(email.getText().toString(), password.getText().toString());
                                                 Snackbar.make(findViewById(android.R.id.content), "Пользователь добавлен!", Snackbar.LENGTH_SHORT).show();
                                                 finish();
                                                 startActivity(new Intent(MainActivity.this, MainActivity2.class));
@@ -230,7 +230,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-    public void Saving_Auth_Preferences(String email, String password){
+    public void SavingAuthPreferences(String email, String password){
         SharedPreferences.Editor editor = user_info_preferences.edit();
         editor.putString(saving_key_for_password, password);
         editor.putString(saving_key_for_email, email);
@@ -238,7 +238,7 @@ public class MainActivity extends AppCompatActivity {
         editor.apply();
     }
 
-    public void Getting_Auth_Preferences(){
+    public void GettingAuthPreferences(){
        if (!user_info_preferences.contains(saving_key_for_email) || !user_info_preferences.contains(saving_key_for_password)){
            return;
        }

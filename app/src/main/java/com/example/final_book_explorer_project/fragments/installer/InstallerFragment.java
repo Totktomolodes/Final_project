@@ -40,8 +40,10 @@ public class InstallerFragment extends Fragment {
     public static int page_count;
     public static List<Book> bookList = new ArrayList<>();
     public static String fileContent;
+
     public static List<String> fileName_list = new ArrayList<String>();
     public static String fileName;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -69,6 +71,8 @@ public class InstallerFragment extends Fragment {
                 Uri uri = data.getData();
                 fileName = getFileNameFromUri(uri); // Получаем название файла из URI
                 readTextFile(uri);
+                maker_book_in_catalog(getActivity());
+
             }
         }
     }
@@ -103,9 +107,10 @@ public class InstallerFragment extends Fragment {
             }
             fileContent = stringBuilder.toString();
 
+
+
             Log.d("InstallerFragment", "File Content: " + fileContent);
             Log.d("InstallerFragment", "File Name: " + fileName);
-
             getActivity().finish();
             startActivity(new Intent(getActivity(), MainActivity3.class));
         } catch (IOException e) {
@@ -115,10 +120,12 @@ public class InstallerFragment extends Fragment {
 
     public static void maker_book_in_catalog(Context context) {
         if (!fileName_list.contains(fileName)) {
-            bookList.add(new Book(fileName, "Author"));
-
+            bookList.add(new Book(fileName, "Author", bookList.size(), fileContent));
             saveBookList(context, bookList);
-            fileName_list.add(fileName);
+            fileName_list.add(fileName);                                                                    ////////
+
+            Bundle extras = new Bundle();
+            extras.putInt(fileName, 0);
         }
         //        SharedPreferencesHelper.saveArrayList(getContext(), fileName_list); //TODO
 

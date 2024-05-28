@@ -1,6 +1,7 @@
 package com.example.final_book_explorer_project.activities;
 
 import static com.example.final_book_explorer_project.fragments.installer.InstallerFragment.fileContent;
+import static com.example.final_book_explorer_project.fragments.installer.InstallerFragment.fileName;
 import static com.example.final_book_explorer_project.fragments.installer.InstallerFragment.maker_book_in_catalog;
 
 import android.content.Intent;
@@ -13,6 +14,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.final_book_explorer_project.R;
+import com.example.final_book_explorer_project.fragments.installer.InstallerFragment;
+import com.example.final_book_explorer_project.fragments.mycatalog.Book;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,23 +25,34 @@ public class MainActivity3 extends AppCompatActivity {
     ImageButton go_back_btn;
     Button back_btn, next_btn;
     int page_size = 1700;
-    public String file_content = fileContent;
+    public String file_content;
     private String page;
     int counter = 0;
     String text = "%d из %d";
     String text2;
     List<String> pages_list;
-    int counter_maximum = (file_content.length() / page_size);
+    int counter_maximum;
+    public Book book;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.reading_screen);
+        Intent intent = getIntent();
+        int bookIndex = intent.getIntExtra("bookIndex", 0);
+        this.book = InstallerFragment.bookList.get(bookIndex);
+        file_content = this.book.getText();
+        counter_maximum = (file_content.length() / page_size);
+
+
         init();
         make_counter();
         divider_text_len();
-        maker_book_in_catalog(this);
+
+
+
+
 
 
         go_back_btn.setOnClickListener(new View.OnClickListener() {

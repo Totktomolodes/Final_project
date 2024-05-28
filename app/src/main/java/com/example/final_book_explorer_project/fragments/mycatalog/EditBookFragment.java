@@ -1,6 +1,7 @@
 package com.example.final_book_explorer_project.fragments.mycatalog;
 
 import static com.example.final_book_explorer_project.fragments.installer.InstallerFragment.bookList;
+import static com.example.final_book_explorer_project.fragments.installer.InstallerFragment.fileName;
 import static com.example.final_book_explorer_project.fragments.installer.InstallerFragment.fileName_list;
 
 import android.content.Context;
@@ -72,6 +73,15 @@ public class EditBookFragment extends Fragment {
             public void onClick(View v) {
                 getParentFragmentManager().popBackStack();
                 startActivity(new Intent(getActivity(), MainActivity3.class));
+
+                Bundle extras = new Bundle();
+                extras.putInt("bookIndex", book.getIndex());
+                Intent intent = new Intent(getActivity(), MainActivity3.class);
+                intent.putExtras(extras);                                                                   ////////
+                startActivity(intent);
+
+
+
             }
         });
         del_button.setOnClickListener(new View.OnClickListener() {
